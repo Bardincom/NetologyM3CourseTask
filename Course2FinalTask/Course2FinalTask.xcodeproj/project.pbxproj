@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				74B7927B202B3427006BCB41 /* Code */,
-				A2F7486224041F1700396045 /* TabBarController */,
+				A2F7486224041F1700396045 /* Controller */,
 				74B7927C202B342E006BCB41 /* Resources */,
 				74B7927D202B3434006BCB41 /* Supporting Files */,
 			);
@@ -113,7 +113,7 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A2F7486224041F1700396045 /* TabBarController */ = {
+		A2F7486224041F1700396045 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				A2F7486324041F6200396045 /* FeedViewController.swift */,
@@ -121,7 +121,7 @@
 				A2F7486724041F7700396045 /* ProfileViewController.swift */,
 				A2F7486824041F7700396045 /* ProfileViewController.xib */,
 			);
-			path = TabBarController;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
