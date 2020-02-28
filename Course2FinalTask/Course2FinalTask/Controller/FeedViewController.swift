@@ -7,16 +7,52 @@
 //
 
 import UIKit
+import DataProvider
 
-class FeedViewController: UIViewController {
+var posts = DataProviders.shared.postsDataProvider
+var users = DataProviders.shared.usersDataProvider
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+class FeedViewController: UIViewController, NibInit {
+  
+  @IBOutlet weak var feedCollectionView: UICollectionView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    print(posts.feed().count)
+//    print(users.currentUser())
 
-//      view.backgroundColor = .white
-//      navigationController?.navigationBar.prefersLargeTitles = true
-//      navigationItem.title = "TEXT"
-    }
+    feedCollectionView.register(UINib(nibName: String(describing: DetailCollectionViewCell.self), bundle: nil),forCellWithReuseIdentifier: "Cell")
 
-
+    feedCollectionView.dataSource = self
+    feedCollectionView.delegate = self
+  }
+  
 }
+
+extension FeedViewController: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    posts.feed().count
+  }
+  
+
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = feedCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DetailCollectionViewCell
+    let post = posts.feed()[indexPath.row]
+    cell.avatarImageView.image = post.authorAvatar
+//    cell.userNameButton.titleLabel?.text = post.authorUsername
+//    cell.imageView.image = post.image
+//    cell.userNameButton.titleLabel?.text = users.currentUser().fullName
+    
+    return cell
+  }
+  
+  
+}
+
+extension FeedViewController: UICollectionViewDelegateFlowLayout {
+  
+}
+
+
+

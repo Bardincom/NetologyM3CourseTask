@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
     
-    let feedViewController = FeedViewController(nibName: nil, bundle: nil)
+    let feedViewController = FeedViewController.initFromNib()
     feedViewController.title = "Feed"
     feedViewController.tabBarItem.image = UIImage(named: "feed")
     let feedNavigationController = UINavigationController(rootViewController: feedViewController)
     
-    let profileViewController = ProfileViewController(nibName: nil, bundle: nil)
+    let profileViewController = ProfileViewController.initFromNib()
     profileViewController.title = "Profile"
     profileViewController.tabBarItem.image = UIImage(named: "profile")
     let profileNavigationController = UINavigationController(rootViewController: profileViewController)

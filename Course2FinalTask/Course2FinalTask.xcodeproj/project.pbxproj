@@ -11,6 +11,9 @@
 		7484B05520441FD000BDE1A6 /* DataProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7484B05320441FD000BDE1A6 /* DataProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B79257202B3254006BCB41 /* AppDelegate.swift */; };
 		74B7925F202B3254006BCB41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B7925E202B3254006BCB41 /* Assets.xcassets */; };
+		A2473B9E240825D600623034 /* NibInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2473B9D240825D600623034 /* NibInit.swift */; };
+		A2DF35EE2405C2C0008A9CD7 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DF35EC2405C2C0008A9CD7 /* DetailCollectionViewCell.swift */; };
+		A2DF35EF2405C2C0008A9CD7 /* DetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2DF35ED2405C2C0008A9CD7 /* DetailCollectionViewCell.xib */; };
 		A2F7486124041B2500396045 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A2F7486024041B2500396045 /* .gitignore */; };
 		A2F7486524041F6200396045 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F7486324041F6200396045 /* FeedViewController.swift */; };
 		A2F7486624041F6200396045 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2F7486424041F6200396045 /* FeedViewController.xib */; };
@@ -39,6 +42,9 @@
 		74B79257202B3254006BCB41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74B7925E202B3254006BCB41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B79263202B3254006BCB41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2473B9D240825D600623034 /* NibInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInit.swift; sourceTree = "<group>"; };
+		A2DF35EC2405C2C0008A9CD7 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		A2DF35ED2405C2C0008A9CD7 /* DetailCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCollectionViewCell.xib; sourceTree = "<group>"; };
 		A2F7486024041B2500396045 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A2F7486324041F6200396045 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		A2F7486424041F6200396045 /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
@@ -120,6 +126,9 @@
 				A2F7486424041F6200396045 /* FeedViewController.xib */,
 				A2F7486724041F7700396045 /* ProfileViewController.swift */,
 				A2F7486824041F7700396045 /* ProfileViewController.xib */,
+				A2473B9D240825D600623034 /* NibInit.swift */,
+				A2DF35EC2405C2C0008A9CD7 /* DetailCollectionViewCell.swift */,
+				A2DF35ED2405C2C0008A9CD7 /* DetailCollectionViewCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +196,7 @@
 				A2F7486124041B2500396045 /* .gitignore in Resources */,
 				A2F7486624041F6200396045 /* FeedViewController.xib in Resources */,
 				A2F7486A24041F7700396045 /* ProfileViewController.xib in Resources */,
+				A2DF35EF2405C2C0008A9CD7 /* DetailCollectionViewCell.xib in Resources */,
 				A2F7486C240420CF00396045 /* Launch Screen.storyboard in Resources */,
 				74B7925F202B3254006BCB41 /* Assets.xcassets in Resources */,
 			);
@@ -199,9 +209,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2473B9E240825D600623034 /* NibInit.swift in Sources */,
 				A2F7486924041F7700396045 /* ProfileViewController.swift in Sources */,
 				A2F7486524041F6200396045 /* FeedViewController.swift in Sources */,
 				74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */,
+				A2DF35EE2405C2C0008A9CD7 /* DetailCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
