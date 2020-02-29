@@ -13,13 +13,14 @@ class DetailCollectionViewCell: UICollectionViewCell, NibInit {
   
   @IBOutlet weak var avatarImageView: UIImageView!
   
-  @IBOutlet weak var userNameButton: UIButton!
+  @IBOutlet weak var userNameLable: UILabel!
   
   @IBOutlet weak var dataLable: UILabel!
   
   @IBOutlet weak var imageView: UIImageView!
   
-  @IBOutlet weak var likesButton: UIButton!
+  @IBOutlet weak var likesLable: UILabel!
+  
   
   @IBOutlet weak var descriptionLable: UILabel!
   
@@ -29,8 +30,10 @@ class DetailCollectionViewCell: UICollectionViewCell, NibInit {
     
 //    avatarImageView.contentMode = .scaleAspectFit
 //    userNameButton.titleLabel?.text = "Antonio"
-//    imageView.contentMode = .scaleAspectFit
-//    descriptionLable.text = "Какой то пост"
+    imageView.contentMode = .scaleAspectFill
+    
+//    descriptionLable.contentMode = .scaleAspectFit
+//    likesLable.l
+    descriptionLable.numberOfLines = 0
   }
-  
 }
