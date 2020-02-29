@@ -18,9 +18,11 @@ class FeedViewController: UIViewController, NibInit {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     feedCollectionView.register(UINib(nibName: String(describing: DetailCollectionViewCell.self), bundle: nil),forCellWithReuseIdentifier: "Cell")
-
+    
+    
+    
     feedCollectionView.dataSource = self
     feedCollectionView.delegate = self
   }
@@ -28,30 +30,22 @@ class FeedViewController: UIViewController, NibInit {
 }
 
 extension FeedViewController: UICollectionViewDataSource {
-//  func numberOfSections(in collectionView: UICollectionView) -> Int {
-//    1
-//  }
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     posts.feed().count
   }
-  
-  
-  
- 
-  
-  
-
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = feedCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DetailCollectionViewCell
     let post = posts.feed()[indexPath.row]
     cell.avatarImageView.image = post.authorAvatar
     cell.userNameLable.text = post.authorUsername
-//    cell.dataLable.text = post.authorUsername
+    cell.dataLable.text = "\(post.createdTime)"
+    displayDate(cell.dataLable)
     cell.imageView.image = post.image
-    cell.likesLable.text = "Likes:" //+ "\(post.likedByCount)"
+    cell.likesLable.text = "Likes: " + "\(post.likedByCount)"
     cell.descriptionLable.text = post.description
-
+    
     
     return cell
   }
@@ -61,17 +55,19 @@ extension FeedViewController: UICollectionViewDataSource {
 
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let itemSize = feedCollectionView.bounds.width
-    return CGSize(width: itemSize, height: itemSize)
+    let widthSize = feedCollectionView.bounds.width
+    let heightSize = feedCollectionView.bounds.height
+    
+    return CGSize(width: widthSize, height: heightSize)
   }
 }
 
-
-
-//extension CollectionViewController: UICollectionViewDelegateFlowLayout {
-//  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//    let itemSize = (collectionView.bounds.width - 3 * cellIdent) / 2
-//
-//    return CGSize(width: itemSize, height: itemSize)
-//  }
+extension FeedViewController {
+  func displayDate(_ label: UILabel) {
+    let displayDate = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .medium
+    dateFormatter.timeStyle = .medium
+    label.text = "\(dateFormatter.string(from: displayDate))"
+  }
+}

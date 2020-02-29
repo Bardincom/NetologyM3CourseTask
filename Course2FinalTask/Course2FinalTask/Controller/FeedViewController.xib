@@ -19,9 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Zsh-J8-4qL">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Zsh-J8-4qL">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8hT-Jy-avn">
                         <size key="itemSize" width="50" height="50"/>
@@ -32,6 +31,12 @@
                 </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Zsh-J8-4qL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Jty-l0-miw"/>
+                <constraint firstItem="Zsh-J8-4qL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="UaM-zh-vYC"/>
+                <constraint firstItem="Zsh-J8-4qL" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="fI2-qS-fGY"/>
+                <constraint firstItem="Zsh-J8-4qL" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="pCe-rr-R34"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="138.75" y="136.26760563380282"/>
         </view>

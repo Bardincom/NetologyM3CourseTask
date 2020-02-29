@@ -27,13 +27,9 @@ class DetailCollectionViewCell: UICollectionViewCell, NibInit {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    
-//    avatarImageView.contentMode = .scaleAspectFit
-//    userNameButton.titleLabel?.text = "Antonio"
     imageView.contentMode = .scaleAspectFill
-    
-//    descriptionLable.contentMode = .scaleAspectFit
-//    likesLable.l
-    descriptionLable.numberOfLines = 0
   }
 }
+
+
+
