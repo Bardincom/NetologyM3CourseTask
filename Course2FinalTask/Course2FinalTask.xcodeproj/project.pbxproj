@@ -134,6 +134,7 @@
 		A293F705240BB86A003D5A96 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A2473B9D240825D600623034 /* NibInit.swift */,
 				A293F706240BB8EC003D5A96 /* UIController+Helepr.swift */,
 			);
 			path = Helpers;
@@ -147,7 +148,6 @@
 				A2F7486424041F6200396045 /* FeedViewController.xib */,
 				A2F7486724041F7700396045 /* ProfileViewController.swift */,
 				A2F7486824041F7700396045 /* ProfileViewController.xib */,
-				A2473B9D240825D600623034 /* NibInit.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

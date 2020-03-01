@@ -20,17 +20,14 @@ class FeedViewController: UIViewController, NibInit {
     super.viewDidLoad()
     
     feedCollectionView.register(UINib(nibName: String(describing: FeedCollectionViewCell.self), bundle: nil),forCellWithReuseIdentifier: "Cell")
-    
-    
-    
+
     feedCollectionView.dataSource = self
     feedCollectionView.delegate = self
   }
-  
 }
 
+//MARK: DataSource
 extension FeedViewController: UICollectionViewDataSource {
-  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     posts.feed().count
   }
@@ -46,18 +43,15 @@ extension FeedViewController: UICollectionViewDataSource {
     cell.likesLable.text = "Likes: " + "\(post.likedByCount)"
     cell.descriptionLable.text = post.description
     
-    
     return cell
   }
-  
-  
 }
 
+//MARK: DelegateFlowLayout
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let widthSize = feedCollectionView.bounds.width
     let heightSize = feedCollectionView.bounds.height
-    
     return CGSize(width: widthSize, height: heightSize)
   }
 }
