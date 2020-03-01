@@ -9,7 +9,7 @@
 import UIKit
 import DataProvider
 
-class DetailCollectionViewCell: UICollectionViewCell, NibInit {
+class FeedCollectionViewCell: UICollectionViewCell, NibInit {
   
   @IBOutlet weak var avatarImageView: UIImageView!
   
@@ -27,7 +27,7 @@ class DetailCollectionViewCell: UICollectionViewCell, NibInit {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    imageView.contentMode = .scaleAspectFill
+//    imageView.contentMode = .scaleAspectFit
   }
 }
 

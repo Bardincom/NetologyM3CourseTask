@@ -19,7 +19,7 @@ class FeedViewController: UIViewController, NibInit {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    feedCollectionView.register(UINib(nibName: String(describing: DetailCollectionViewCell.self), bundle: nil),forCellWithReuseIdentifier: "Cell")
+    feedCollectionView.register(UINib(nibName: String(describing: FeedCollectionViewCell.self), bundle: nil),forCellWithReuseIdentifier: "Cell")
     
     
     
@@ -36,7 +36,7 @@ extension FeedViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = feedCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DetailCollectionViewCell
+    let cell = feedCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! FeedCollectionViewCell
     let post = posts.feed()[indexPath.row]
     cell.avatarImageView.image = post.authorAvatar
     cell.userNameLable.text = post.authorUsername
@@ -62,12 +62,3 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
-extension FeedViewController {
-  func displayDate(_ label: UILabel) {
-    let displayDate = Date()
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    dateFormatter.timeStyle = .medium
-    label.text = "\(dateFormatter.string(from: displayDate))"
-  }
-}
