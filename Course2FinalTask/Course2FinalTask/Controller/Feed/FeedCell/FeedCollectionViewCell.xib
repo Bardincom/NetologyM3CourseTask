@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedViewController" customModule="Course2FinalTask" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="gTV-IL-0wX" customClass="FeedCollectionViewCell" customModule="Course2FinalTask" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeedCell" id="gTV-IL-0wX" customClass="FeedCollectionViewCell" customModule="Course2FinalTask" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="470"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -95,11 +95,11 @@
             <size key="customSize" width="273" height="470"/>
             <connections>
                 <outlet property="avatarImageView" destination="mxu-1l-XIR" id="PbQ-o7-fch"/>
-                <outlet property="dataLable" destination="pQF-jY-tOg" id="xs2-LC-l6O"/>
-                <outlet property="descriptionLable" destination="zAj-tk-cU6" id="xk1-W0-NvS"/>
+                <outlet property="dataLabel" destination="pQF-jY-tOg" id="RJ2-JQ-INb"/>
+                <outlet property="descriptionLabel" destination="zAj-tk-cU6" id="0OW-ay-Xnd"/>
                 <outlet property="imageView" destination="SfU-eq-VZD" id="k8A-fC-azJ"/>
-                <outlet property="likesLable" destination="d3N-yl-MXw" id="zoF-e8-f83"/>
-                <outlet property="userNameLable" destination="gmS-t9-oZc" id="16b-oh-pjd"/>
+                <outlet property="likesLabel" destination="d3N-yl-MXw" id="7m2-Sr-QI2"/>
+                <outlet property="userNameLabel" destination="gmS-t9-oZc" id="uTe-6j-vnw"/>
             </connections>
             <point key="canvasLocation" x="146.25" y="145.77464788732394"/>
         </collectionViewCell>

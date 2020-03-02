@@ -12,7 +12,11 @@
 		74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B79257202B3254006BCB41 /* AppDelegate.swift */; };
 		74B7925F202B3254006BCB41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B7925E202B3254006BCB41 /* Assets.xcassets */; };
 		A2473B9E240825D600623034 /* NibInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2473B9D240825D600623034 /* NibInit.swift */; };
+		A25E5462240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E5460240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift */; };
+		A25E5463240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A25E5461240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib */; };
 		A293F707240BB8EC003D5A96 /* UIController+Helepr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A293F706240BB8EC003D5A96 /* UIController+Helepr.swift */; };
+		A293F70C240BE7A8003D5A96 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A293F70A240BE7A8003D5A96 /* ProfileCollectionViewCell.swift */; };
+		A293F70D240BE7A8003D5A96 /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A293F70B240BE7A8003D5A96 /* ProfileCollectionViewCell.xib */; };
 		A2DF35EE2405C2C0008A9CD7 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DF35EC2405C2C0008A9CD7 /* FeedCollectionViewCell.swift */; };
 		A2DF35EF2405C2C0008A9CD7 /* FeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2DF35ED2405C2C0008A9CD7 /* FeedCollectionViewCell.xib */; };
 		A2F7486124041B2500396045 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A2F7486024041B2500396045 /* .gitignore */; };
@@ -44,7 +48,11 @@
 		74B7925E202B3254006BCB41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B79263202B3254006BCB41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2473B9D240825D600623034 /* NibInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInit.swift; sourceTree = "<group>"; };
+		A25E5460240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		A25E5461240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		A293F706240BB8EC003D5A96 /* UIController+Helepr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIController+Helepr.swift"; sourceTree = "<group>"; };
+		A293F70A240BE7A8003D5A96 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		A293F70B240BE7A8003D5A96 /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
 		A2DF35EC2405C2C0008A9CD7 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2DF35ED2405C2C0008A9CD7 /* FeedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCollectionViewCell.xib; sourceTree = "<group>"; };
 		A2F7486024041B2500396045 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -122,6 +130,36 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A25E545C240C269F00478BC5 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				A293F703240B95ED003D5A96 /* FeedCell */,
+				A2F7486324041F6200396045 /* FeedViewController.swift */,
+				A2F7486424041F6200396045 /* FeedViewController.xib */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		A25E545D240C26B500478BC5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A25E545F240C272A00478BC5 /* ProfileHeader */,
+				A293F709240BE6A8003D5A96 /* ProfileCell */,
+				A2F7486724041F7700396045 /* ProfileViewController.swift */,
+				A2F7486824041F7700396045 /* ProfileViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A25E545F240C272A00478BC5 /* ProfileHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A25E5460240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift */,
+				A25E5461240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib */,
+			);
+			path = ProfileHeader;
+			sourceTree = "<group>";
+		};
 		A293F703240B95ED003D5A96 /* FeedCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,14 +178,20 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		A293F709240BE6A8003D5A96 /* ProfileCell */ = {
+			isa = PBXGroup;
+			children = (
+				A293F70A240BE7A8003D5A96 /* ProfileCollectionViewCell.swift */,
+				A293F70B240BE7A8003D5A96 /* ProfileCollectionViewCell.xib */,
+			);
+			path = ProfileCell;
+			sourceTree = "<group>";
+		};
 		A2F7486224041F1700396045 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A293F703240B95ED003D5A96 /* FeedCell */,
-				A2F7486324041F6200396045 /* FeedViewController.swift */,
-				A2F7486424041F6200396045 /* FeedViewController.xib */,
-				A2F7486724041F7700396045 /* ProfileViewController.swift */,
-				A2F7486824041F7700396045 /* ProfileViewController.xib */,
+				A25E545C240C269F00478BC5 /* Feed */,
+				A25E545D240C26B500478BC5 /* Profile */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,6 +259,8 @@
 				A2F7486124041B2500396045 /* .gitignore in Resources */,
 				A2F7486624041F6200396045 /* FeedViewController.xib in Resources */,
 				A2F7486A24041F7700396045 /* ProfileViewController.xib in Resources */,
+				A293F70D240BE7A8003D5A96 /* ProfileCollectionViewCell.xib in Resources */,
+				A25E5463240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib in Resources */,
 				A2DF35EF2405C2C0008A9CD7 /* FeedCollectionViewCell.xib in Resources */,
 				A2F7486C240420CF00396045 /* Launch Screen.storyboard in Resources */,
 				74B7925F202B3254006BCB41 /* Assets.xcassets in Resources */,
@@ -228,9 +274,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A25E5462240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				A2473B9E240825D600623034 /* NibInit.swift in Sources */,
 				A293F707240BB8EC003D5A96 /* UIController+Helepr.swift in Sources */,
 				A2F7486924041F7700396045 /* ProfileViewController.swift in Sources */,
+				A293F70C240BE7A8003D5A96 /* ProfileCollectionViewCell.swift in Sources */,
 				A2F7486524041F6200396045 /* FeedViewController.swift in Sources */,
 				74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */,
 				A2DF35EE2405C2C0008A9CD7 /* FeedCollectionViewCell.swift in Sources */,

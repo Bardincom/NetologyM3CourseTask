@@ -10,16 +10,16 @@ import UIKit
 import DataProvider
 
 var posts = DataProviders.shared.postsDataProvider
-var users = DataProviders.shared.usersDataProvider
 
 class FeedViewController: UIViewController, NibInit {
+  private let reuseIdentifier = "FeedCell"
   
   @IBOutlet weak var feedCollectionView: UICollectionView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    feedCollectionView.register(UINib(nibName: String(describing: FeedCollectionViewCell.self), bundle: nil),forCellWithReuseIdentifier: "Cell")
+    feedCollectionView.register(UINib(nibName: String(describing: FeedCollectionViewCell.self), bundle: nil),forCellWithReuseIdentifier: reuseIdentifier)
 
     feedCollectionView.dataSource = self
     feedCollectionView.delegate = self
@@ -33,15 +33,15 @@ extension FeedViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = feedCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! FeedCollectionViewCell
+    let cell = feedCollectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! FeedCollectionViewCell
     let post = posts.feed()[indexPath.row]
     cell.avatarImageView.image = post.authorAvatar
-    cell.userNameLable.text = post.authorUsername
-    cell.dataLable.text = "\(post.createdTime)"
-    displayDate(cell.dataLable)
+    cell.userNameLabel.text = post.authorUsername
+    cell.dataLabel.text = "\(post.createdTime)"
+    displayDate(cell.dataLabel)
     cell.imageView.image = post.image
-    cell.likesLable.text = "Likes: " + "\(post.likedByCount)"
-    cell.descriptionLable.text = post.description
+    cell.likesLabel.text = "Likes: " + "\(post.likedByCount)"
+    cell.descriptionLabel.text = post.description
     
     return cell
   }
