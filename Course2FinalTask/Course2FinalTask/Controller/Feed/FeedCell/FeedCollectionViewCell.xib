@@ -39,7 +39,6 @@
                                     <constraint firstAttribute="width" constant="44" id="bCM-oa-eqz"/>
                                     <constraint firstAttribute="height" constant="44" id="uF1-QZ-gUd"/>
                                 </constraints>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="like"/>
                                 <state key="disabled" image="like"/>
                             </button>
@@ -118,6 +117,7 @@
                 <outlet property="dateLabel" destination="pQF-jY-tOg" id="RJ2-JQ-INb"/>
                 <outlet property="descriptionLabel" destination="zAj-tk-cU6" id="0OW-ay-Xnd"/>
                 <outlet property="imageView" destination="SfU-eq-VZD" id="k8A-fC-azJ"/>
+                <outlet property="likeButton" destination="zF1-Ni-sRJ" id="KXB-J3-6Kn"/>
                 <outlet property="likesLabel" destination="d3N-yl-MXw" id="7m2-Sr-QI2"/>
                 <outlet property="userNameLabel" destination="gmS-t9-oZc" id="uTe-6j-vnw"/>
             </connections>

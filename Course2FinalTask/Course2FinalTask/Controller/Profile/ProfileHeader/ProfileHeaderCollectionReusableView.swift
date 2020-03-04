@@ -17,10 +17,13 @@ final class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followingLabel: UILabel!
     
     func setHeader(user: User) {
-           avatarImage.image = user.avatar
-           avatarImage.layer.cornerRadius = avatarImage.frame.height / 2
-           fullNameLabel.text = user.fullName
-           followersLabel.text = "Followers: \(user.followsCount)"
-           followingLabel.text = "Following: \(user.followedByCount)"
-       }
+        avatarImage.image = user.avatar
+        avatarImage.layer.cornerRadius = avatarImage.frame.height / 2
+        fullNameLabel.font = systemsFont
+        fullNameLabel.text = user.fullName
+        followersLabel.font = systemsBoldFont
+        followersLabel.text = "Followers: \(user.followsCount)"
+        followingLabel.font = systemsBoldFont
+        followingLabel.text = "Following: \(user.followedByCount)"
+    }
 }

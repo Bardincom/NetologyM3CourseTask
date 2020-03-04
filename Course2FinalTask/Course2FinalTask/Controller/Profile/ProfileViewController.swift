@@ -31,7 +31,7 @@ final class ProfileViewController: UIViewController, NibInit {
 extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posts.findPosts(by: user.id)!.count
+        return selectPosts().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -60,8 +60,8 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
             assertionFailure()
             return
         }
-        let post = posts.findPosts(by: user.id)![indexPath.row].image
-        cell.imageView.image = post
+        let post = selectPosts()[indexPath.row]
+        cell.setImageCell(post: post)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {

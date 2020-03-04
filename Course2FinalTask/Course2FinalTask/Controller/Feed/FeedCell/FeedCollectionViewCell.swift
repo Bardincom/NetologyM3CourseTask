@@ -17,6 +17,7 @@ final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var likesLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet private weak var cellConstraintsWidthConstraint: NSLayoutConstraint! {
         willSet {
@@ -25,14 +26,20 @@ final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
     }
     
     func setup(post: Post) {
+        dateLabel.font = systemsFont
+        dateLabel.text = post.createdTime.displayDate()
         avatarImageView.image = post.authorAvatar
+        userNameLabel.font = systemsBoldFont
         userNameLabel.text = post.authorUsername
-        let postCreatedTime = post.createdTime
-        dateLabel.text = postCreatedTime.displayDate()
         imageView.image = post.image
+        likesLabel.font = systemsBoldFont
         likesLabel.text = "Likes: " + "\(post.likedByCount)"
+        descriptionLabel.font = systemsFont
         descriptionLabel.text = post.description
+        likeButton.tintColor = .lightGray
     }
+    
+
 }
 
 

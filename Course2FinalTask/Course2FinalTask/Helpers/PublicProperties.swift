@@ -22,20 +22,36 @@ enum ControllerSet {
 public let posts = DataProviders.shared.postsDataProvider
 public let users = DataProviders.shared.usersDataProvider
 
-/// текущий пользователь
+/// Текущий пользователь
 public let user = users.currentUser()
 
-/// посты по переданному ID
-public let postsUser = posts.findPosts(by: user.id)
-
-///Массив постов. Массив пустой если нет постов или текущий пользователь ни на кого не подписан.
+/// Массив постов. Массив пустой если нет постов или текущий пользователь ни на кого не подписан.
 public let postsFeed = posts.feed()
 
+/// Публикации по переданному ID полльзователя
+func selectPosts() -> [Post] {
+    guard let postsProfile = posts.findPosts(by: user.id) else {
+        return [Post]()
+    }
+    return postsProfile
+}
 
-//func selectPosts(_ post: Post) -> [Post]? {
-//    guard let postsProfile = posts.findPosts(by: user.id) else {
-//    return nil
-//    }
-//    return postsProfile
-//}
+//MARK: Font Labels
 
+/*
+ Likes
+ Font: Systems semibold 14, color: black
+ Description
+ Font: Systems 14, color: black
+ AutorName
+ Font: Systems semibold 14, color: black
+ Date
+ Font: Systems 14, color: black
+ FullName
+ Font: Systems 14, color: black
+ Followers, Following
+ Font: Systems semibold 14, color: black
+ */
+
+let systemsBoldFont: UIFont = .systemFont(ofSize: 14, weight: .semibold)
+let systemsFont: UIFont = .systemFont(ofSize: 14)

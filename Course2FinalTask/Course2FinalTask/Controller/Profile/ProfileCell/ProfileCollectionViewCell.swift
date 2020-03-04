@@ -13,11 +13,9 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func setImageCell(post: Post) {
+        imageView.image = post.image
     }
     
     
-   
 }

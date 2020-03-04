@@ -9,7 +9,7 @@
 import Foundation
 
 extension Date {
-/// Форматирует дату в String в формате Месяц Число Год Часы
+    /// Форматирует дату в String в формате Месяц Число Год Часы
     func displayDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
