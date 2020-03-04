@@ -14,6 +14,8 @@
 		A2473B9E240825D600623034 /* NibInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2473B9D240825D600623034 /* NibInit.swift */; };
 		A25E5462240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E5460240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift */; };
 		A25E5463240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A25E5461240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib */; };
+		A27133AA240F7FB8007E13BC /* PublicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27133A9240F7FB8007E13BC /* PublicProperties.swift */; };
+		A27133AC240FC416007E13BC /* Date+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27133AB240FC416007E13BC /* Date+Helper.swift */; };
 		A293F707240BB8EC003D5A96 /* UIController+Helepr.swift in Sources */ = {isa = PBXBuildFile; fileRef = A293F706240BB8EC003D5A96 /* UIController+Helepr.swift */; };
 		A293F70C240BE7A8003D5A96 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A293F70A240BE7A8003D5A96 /* ProfileCollectionViewCell.swift */; };
 		A293F70D240BE7A8003D5A96 /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A293F70B240BE7A8003D5A96 /* ProfileCollectionViewCell.xib */; };
@@ -50,6 +52,8 @@
 		A2473B9D240825D600623034 /* NibInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInit.swift; sourceTree = "<group>"; };
 		A25E5460240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		A25E5461240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		A27133A9240F7FB8007E13BC /* PublicProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProperties.swift; sourceTree = "<group>"; };
+		A27133AB240FC416007E13BC /* Date+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helper.swift"; sourceTree = "<group>"; };
 		A293F706240BB8EC003D5A96 /* UIController+Helepr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIController+Helepr.swift"; sourceTree = "<group>"; };
 		A293F70A240BE7A8003D5A96 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		A293F70B240BE7A8003D5A96 /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -83,7 +87,9 @@
 				7484B05320441FD000BDE1A6 /* DataProvider.framework */,
 				74B79255202B3254006BCB41 /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		74B79255202B3254006BCB41 /* Products */ = {
 			isa = PBXGroup;
@@ -172,8 +178,10 @@
 		A293F705240BB86A003D5A96 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				A2473B9D240825D600623034 /* NibInit.swift */,
+				A27133A9240F7FB8007E13BC /* PublicProperties.swift */,
 				A293F706240BB8EC003D5A96 /* UIController+Helepr.swift */,
+				A2473B9D240825D600623034 /* NibInit.swift */,
+				A27133AB240FC416007E13BC /* Date+Helper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -277,9 +285,11 @@
 				A25E5462240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				A2473B9E240825D600623034 /* NibInit.swift in Sources */,
 				A293F707240BB8EC003D5A96 /* UIController+Helepr.swift in Sources */,
+				A27133AC240FC416007E13BC /* Date+Helper.swift in Sources */,
 				A2F7486924041F7700396045 /* ProfileViewController.swift in Sources */,
 				A293F70C240BE7A8003D5A96 /* ProfileCollectionViewCell.swift in Sources */,
 				A2F7486524041F6200396045 /* FeedViewController.swift in Sources */,
+				A27133AA240F7FB8007E13BC /* PublicProperties.swift in Sources */,
 				74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */,
 				A2DF35EE2405C2C0008A9CD7 /* FeedCollectionViewCell.swift in Sources */,
 			);

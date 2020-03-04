@@ -9,19 +9,30 @@
 import UIKit
 import DataProvider
 
-class FeedCollectionViewCell: UICollectionViewCell, NibInit {
-  
-  @IBOutlet weak var avatarImageView: UIImageView!
-  @IBOutlet weak var userNameLabel: UILabel!
-  @IBOutlet weak var dataLabel: UILabel!
-  @IBOutlet weak var imageView: UIImageView!
-  @IBOutlet weak var likesLabel: UILabel!
-  @IBOutlet weak var descriptionLabel: UILabel!
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    //    imageView.contentMode = .scaleAspectFit
-  }
+final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
+    
+    @IBOutlet private weak var avatarImageView: UIImageView!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var likesLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    
+    @IBOutlet private weak var cellConstraintsWidthConstraint: NSLayoutConstraint! {
+        willSet {
+            newValue.constant = UIScreen.main.bounds.width
+        }
+    }
+    
+    func setup(post: Post) {
+        avatarImageView.image = post.authorAvatar
+        userNameLabel.text = post.authorUsername
+        let postCreatedTime = post.createdTime
+        dateLabel.text = postCreatedTime.displayDate()
+        imageView.image = post.image
+        likesLabel.text = "Likes: " + "\(post.likedByCount)"
+        descriptionLabel.text = post.description
+    }
 }
 
 

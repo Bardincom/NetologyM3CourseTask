@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import DataProvider
 
-class ProfileHeaderCollectionReusableView: UICollectionReusableView {
-
-  @IBOutlet weak var avatarImage: UIImageView!
-  @IBOutlet weak var fullNameLabel: UILabel!
-  @IBOutlet weak var followersLabel: UILabel!
-  @IBOutlet weak var followingLabel: UILabel!
-  
-  
-  override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    backgroundColor = .red
-    }
+final class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     
+    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var followersLabel: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
+    
+    func setHeader(user: User) {
+           avatarImage.image = user.avatar
+           avatarImage.layer.cornerRadius = avatarImage.frame.height / 2
+           fullNameLabel.text = user.fullName
+           followersLabel.text = "Followers: \(user.followsCount)"
+           followingLabel.text = "Following: \(user.followedByCount)"
+       }
 }

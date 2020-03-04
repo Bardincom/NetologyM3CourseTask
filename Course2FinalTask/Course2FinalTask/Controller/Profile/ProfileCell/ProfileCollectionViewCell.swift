@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import DataProvider
 
-class ProfileCollectionViewCell: UICollectionViewCell {
-  
-  @IBOutlet weak var image: UIImageView!
-  
-  override func awakeFromNib() {
+final class ProfileCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    
+   
 }

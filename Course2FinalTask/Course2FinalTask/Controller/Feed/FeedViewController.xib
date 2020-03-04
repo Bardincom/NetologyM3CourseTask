@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedViewController" customModule="Course2FinalTask" customModuleProvider="target">
             <connections>
+                <outlet property="collectionLayout" destination="8hT-Jy-avn" id="d5Y-c8-AiT"/>
                 <outlet property="feedCollectionView" destination="Zsh-J8-4qL" id="zyl-F2-DPV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,6 +29,10 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ZC9-GY-irJ"/>
+                        <outlet property="delegate" destination="-1" id="igo-ys-VbT"/>
+                    </connections>
                 </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

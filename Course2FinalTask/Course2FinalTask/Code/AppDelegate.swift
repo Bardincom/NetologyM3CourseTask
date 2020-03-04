@@ -17,13 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
     
     let feedViewController = FeedViewController.initFromNib()
-    feedViewController.title = "Feed"
-    feedViewController.tabBarItem.image = UIImage(named: "feed")
+    
+    feedViewController.tabBarItem.image = imageFeedViewController
     let feedNavigationController = UINavigationController(rootViewController: feedViewController)
     
     let profileViewController = ProfileViewController.initFromNib()
-    profileViewController.title = "Profile"
-    profileViewController.tabBarItem.image = UIImage(named: "profile")
+    profileViewController.tabBarItem.title = ControllerSet.profileViewController
+    profileViewController.tabBarItem.image = imageProfileViewController
     let profileNavigationController = UINavigationController(rootViewController: profileViewController)
     
     
