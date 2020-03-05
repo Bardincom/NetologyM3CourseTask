@@ -29,6 +29,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SfU-eq-VZD">
                                 <rect key="frame" x="0.0" y="50.5" width="320" height="320"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SfU-eq-VZD" secondAttribute="height" multiplier="1:1" id="MNz-MI-Qfc"/>
                                 </constraints>
@@ -77,6 +78,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigLike" translatesAutoresizingMaskIntoConstraints="NO" id="avz-6W-4UD">
+                                <rect key="frame" x="110" y="160.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="avz-6W-4UD" secondAttribute="height" multiplier="1:1" id="l5m-bu-ZgA"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -84,10 +91,12 @@
                             <constraint firstAttribute="trailing" secondItem="SfU-eq-VZD" secondAttribute="trailing" id="4y6-Tb-yuv"/>
                             <constraint firstItem="d3N-yl-MXw" firstAttribute="centerY" secondItem="zF1-Ni-sRJ" secondAttribute="centerY" id="7fg-dF-VlC"/>
                             <constraint firstItem="zF1-Ni-sRJ" firstAttribute="leading" secondItem="d3N-yl-MXw" secondAttribute="trailing" constant="15" id="F9X-n5-8UU"/>
+                            <constraint firstItem="avz-6W-4UD" firstAttribute="centerY" secondItem="SfU-eq-VZD" secondAttribute="centerY" id="Hmc-AT-pYY"/>
                             <constraint firstAttribute="trailing" secondItem="GID-fZ-GW7" secondAttribute="trailing" constant="15" id="JG9-2h-CRq"/>
                             <constraint firstItem="SfU-eq-VZD" firstAttribute="leading" secondItem="DGW-zf-RJA" secondAttribute="leading" id="Kd1-Hb-xab"/>
                             <constraint firstItem="GID-fZ-GW7" firstAttribute="height" secondItem="mxu-1l-XIR" secondAttribute="height" multiplier="0.971429" id="OFl-Aa-LsO"/>
                             <constraint firstItem="mxu-1l-XIR" firstAttribute="top" secondItem="DGW-zf-RJA" secondAttribute="top" constant="8" id="PjF-Go-ewt"/>
+                            <constraint firstItem="avz-6W-4UD" firstAttribute="centerX" secondItem="SfU-eq-VZD" secondAttribute="centerX" id="Ra5-Nx-3Pa"/>
                             <constraint firstItem="d3N-yl-MXw" firstAttribute="leading" secondItem="DGW-zf-RJA" secondAttribute="leading" constant="15" id="Wmq-d3-3Zb"/>
                             <constraint firstItem="GID-fZ-GW7" firstAttribute="leading" secondItem="mxu-1l-XIR" secondAttribute="trailing" constant="8" id="Zpf-S5-BS8"/>
                             <constraint firstItem="GID-fZ-GW7" firstAttribute="centerY" secondItem="mxu-1l-XIR" secondAttribute="centerY" id="gFf-if-cGU"/>
@@ -113,6 +122,7 @@
             <size key="customSize" width="273" height="456"/>
             <connections>
                 <outlet property="avatarImageView" destination="mxu-1l-XIR" id="PbQ-o7-fch"/>
+                <outlet property="bigLike" destination="avz-6W-4UD" id="a1y-Zs-Aot"/>
                 <outlet property="cellConstraintsWidthConstraint" destination="qIK-32-ilc" id="z1m-Y4-ATb"/>
                 <outlet property="dateLabel" destination="pQF-jY-tOg" id="RJ2-JQ-INb"/>
                 <outlet property="descriptionLabel" destination="zAj-tk-cU6" id="0OW-ay-Xnd"/>
@@ -125,6 +135,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="bigLike" width="100" height="100"/>
         <image name="like" width="25" height="25"/>
     </resources>
 </document>

@@ -23,14 +23,15 @@ public let posts = DataProviders.shared.postsDataProvider
 public let users = DataProviders.shared.usersDataProvider
 
 /// Текущий пользователь
-public let user = users.currentUser()
+public let currentUser = users.currentUser()
+public let user = users.user(with: currentUser.id)
 
 /// Массив постов. Массив пустой если нет постов или текущий пользователь ни на кого не подписан.
 public let postsFeed = posts.feed()
 
 /// Публикации по переданному ID полльзователя
 func selectPosts() -> [Post] {
-    guard let postsProfile = posts.findPosts(by: user.id) else {
+    guard let postsProfile = posts.findPosts(by: currentUser.id) else {
         return [Post]()
     }
     return postsProfile

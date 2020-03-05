@@ -68,7 +68,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         guard let view = view as? ProfileHeaderCollectionReusableView else {
             assertionFailure()
             return  }
-        view.setHeader(user: user)
+        view.setHeader(user: currentUser)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -81,7 +81,7 @@ extension ProfileViewController {
     
     private func setViewController() {
         view.backgroundColor = .white
-        title = user.username
+        title = currentUser.username
         tabBarItem.title = ControllerSet.profileViewController
     }
 }

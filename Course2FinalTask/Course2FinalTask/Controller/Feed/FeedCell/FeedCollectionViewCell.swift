@@ -19,6 +19,8 @@ final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
+    @IBOutlet weak var bigLike: UIImageView!
+    
     @IBOutlet private weak var cellConstraintsWidthConstraint: NSLayoutConstraint! {
         willSet {
             newValue.constant = UIScreen.main.bounds.width
@@ -39,8 +41,38 @@ final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
         likeButton.tintColor = .lightGray
     }
     
-
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        bigLike.alpha = 0
+        imageView.isUserInteractionEnabled = true
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(doudleTap))
+        gesture.numberOfTapsRequired = 2
+        imageView.addGestureRecognizer(gesture)
+    }
+    
 }
 
+extension FeedCollectionViewCell {
+    @objc private func doudleTap() {
+        let animation = CATransition()
+        animation.delegate = self
+        animation.duration = 0.3
+        animation.timingFunction = CAMediaTimingFunction(name: .linear)
+        
+        bigLike.alpha = 1
+        bigLike.layer.add(animation, forKey: nil)
+    }
+}
 
-
+extension FeedCollectionViewCell: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        let animation = CATransition()
+        animation.duration = 0.6
+        animation.type = .moveIn
+        animation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        bigLike.alpha = 0
+        bigLike.layer.add(animation, forKey: nil)
+    }
+}
