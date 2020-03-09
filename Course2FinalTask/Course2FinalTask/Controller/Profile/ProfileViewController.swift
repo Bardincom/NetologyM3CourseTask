@@ -11,19 +11,28 @@ import DataProvider
 
 final class ProfileViewController: UIViewController, NibInit {
     
+    var userProfile: User?
+    var postsProfile: [Post]?
+    
     @IBOutlet weak var profileCollectionView: UICollectionView! {
         willSet {
             newValue.register(nibCell: ProfileCollectionViewCell.self)
+            newValue.register(nibSupplementaryView: ProfileHeaderCollectionReusableView.self, kind: UICollectionView.elementKindSectionHeader)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setViewController()
         
-        /// регистрирую Header
-        profileCollectionView.register(nibSupplementaryView: ProfileHeaderCollectionReusableView.self, kind: UICollectionView.elementKindSectionHeader)
+        if userProfile == nil {
+            userProfile = currentUser
+        }
+        
+        postsProfile = posts.findPosts(by: userProfile!.id)
+        
+        
+        
     }
 }
 
@@ -31,7 +40,8 @@ final class ProfileViewController: UIViewController, NibInit {
 extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectPosts().count
+//        return selectPosts().count
+        return postsProfile!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,7 +62,7 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
 }
 
-//MARK: Delegate
+//MARK: Delegate FlowLayout
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -60,15 +70,17 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
             assertionFailure()
             return
         }
-        let post = selectPosts()[indexPath.row]
+        let post = postsProfile![indexPath.row]
         cell.setImageCell(post: post)
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         guard let view = view as? ProfileHeaderCollectionReusableView else {
             assertionFailure()
             return  }
-        view.setHeader(user: currentUser)
+        view.setHeader(user: userProfile!)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -77,6 +89,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: setViewController
 extension ProfileViewController {
     
     private func setViewController() {
@@ -85,3 +98,6 @@ extension ProfileViewController {
         tabBarItem.title = ControllerSet.profileViewController
     }
 }
+
+
+

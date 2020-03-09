@@ -1,5 +1,5 @@
 //
-//  Date+Helper.swift
+//  Date + Extension.swift
 //  Course2FinalTask
 //
 //  Created by Aleksey Bardin on 04.03.2020.
@@ -14,6 +14,7 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .medium
+        dateFormatter.doesRelativeDateFormatting = true
         return dateFormatter.string(from: self)
     }
 }

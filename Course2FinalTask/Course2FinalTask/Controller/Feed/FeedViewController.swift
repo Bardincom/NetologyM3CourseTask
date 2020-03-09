@@ -51,6 +51,7 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
             return
         }
         let post = postsFeed[indexPath.row]
+        cell.delegate = self
         cell.setup(post: post)
     }
     
@@ -65,6 +66,21 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
 extension FeedViewController {
     private func setFeedViewController() {
         title = ControllerSet.feedViewController
+    }
+}
+
+extension FeedViewController: FeedCollectionViewProtocol {
+    func openUserProfile(cell: FeedCollectionViewCell) {
+        guard let indexPath = feedCollectionView.indexPath(for: cell) else { return }
+        let currentPost = postsFeed[indexPath.row]
+        guard let author = users.user(with: currentPost.author) else { return }
+        let authorPosts = posts.findPosts(by: author.id)
+
+        let profileViewController = ProfileViewController.initFromNib()
+        profileViewController.userProfile = author
+        profileViewController.postsProfile = authorPosts
+
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
 }
 

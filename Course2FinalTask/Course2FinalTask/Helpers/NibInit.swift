@@ -9,7 +9,9 @@
 import UIKit
 
 protocol NibInit {}
+
 extension NibInit where Self: UIView {
+    
     static func initFromNib() -> Self {
         let nibName = String(describing: Self.self)
         let nib = UINib(nibName: nibName, bundle: nil)
@@ -18,6 +20,7 @@ extension NibInit where Self: UIView {
 }
 
 extension NibInit where Self: UIViewController {
+    
     static func initFromNib() -> Self {
         let nibName = String(describing: Self.self)
         return self.init(nibName: nibName, bundle: nil)

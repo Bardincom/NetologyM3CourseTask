@@ -1,5 +1,5 @@
 //
-//  UIController+Helepr.swift
+//  UICollectionView + Extension.swift.swift
 //  Course2FinalTask
 //
 //  Created by Aleksey Bardin on 01.03.2020.
