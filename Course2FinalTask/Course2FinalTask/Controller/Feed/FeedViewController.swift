@@ -11,14 +11,14 @@ import DataProvider
 
 final class FeedViewController: UIViewController, NibInit {
     
-    @IBOutlet weak var feedCollectionView: UICollectionView!
+    @IBOutlet weak private var feedCollectionView: UICollectionView!
         {
         willSet {
             newValue.register(nibCell: FeedCollectionViewCell.self)
         }
     }
     
-    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
+    @IBOutlet weak private var collectionLayout: UICollectionViewFlowLayout! {
         didSet {
             collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
@@ -27,6 +27,12 @@ final class FeedViewController: UIViewController, NibInit {
     override func viewDidLoad() {
         super.viewDidLoad()
         setFeedViewController()
+    }
+}
+
+extension FeedViewController {
+    private func setFeedViewController() {
+        title = ControllerSet.feedViewController
     }
 }
 
@@ -51,36 +57,57 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
             return
         }
         let post = postsFeed[indexPath.row]
-        cell.delegate = self
         cell.setup(post: post)
+        cell.delegate = self
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
         let post = posts.feed()[indexPath.row]
         let estimatedFrame = NSString(string: post.description).boundingRect(with: CGSize(width: width - 8, height: width - 8), options: .usesLineFragmentOrigin, attributes: nil, context: nil)
-        return CGSize(width: width, height: estimatedFrame.height + UIScreen.main.bounds.width + 50 + 80)
+        return CGSize(width: width, height: estimatedFrame.height + UIScreen.main.bounds.width + 130)
     }
 }
 
-extension FeedViewController {
-    private func setFeedViewController() {
-        title = ControllerSet.feedViewController
-    }
-}
-
+// MARK: FeedCollectionViewProtoco
 extension FeedViewController: FeedCollectionViewProtocol {
+    /// открывает профиль пользователя
     func openUserProfile(cell: FeedCollectionViewCell) {
         guard let indexPath = feedCollectionView.indexPath(for: cell) else { return }
+        
         let currentPost = postsFeed[indexPath.row]
+        
         guard let author = users.user(with: currentPost.author) else { return }
+        
         let authorPosts = posts.findPosts(by: author.id)
-
+        
         let profileViewController = ProfileViewController.initFromNib()
         profileViewController.userProfile = author
         profileViewController.postsProfile = authorPosts
-
+        
         self.navigationController?.pushViewController(profileViewController, animated: true)
     }
-}
+    /// ставит лайк на публикацию
+    func likePost(cell: FeedCollectionViewCell) {
+        guard let indexPath = feedCollectionView.indexPath(for: cell) else { return }
 
+        let postID = postsFeed[indexPath.row].id
+        
+        guard cell.likeButton.tintColor == lightGrayColor else {
+            if posts.unlikePost(with: postID) {
+                postsFeed[indexPath.row].currentUserLikesThisPost = false
+                postsFeed[indexPath.row].likedByCount -= 1
+                cell.tintColor = lightGrayColor
+                feedCollectionView.reloadData()
+            }
+            return
+        }
+        if posts.likePost(with: postID) {
+            postsFeed[indexPath.row].currentUserLikesThisPost = true
+            postsFeed[indexPath.row].likedByCount += 1
+            cell.tintColor = defaultTintColor
+            feedCollectionView.reloadData()
+        }
+    }
+    
+}

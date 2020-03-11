@@ -124,6 +124,7 @@
                 <outlet property="avatarImageView" destination="mxu-1l-XIR" id="PbQ-o7-fch"/>
                 <outlet property="bigLike" destination="avz-6W-4UD" id="a1y-Zs-Aot"/>
                 <outlet property="cellConstraintsWidthConstraint" destination="qIK-32-ilc" id="z1m-Y4-ATb"/>
+                <outlet property="containerStackView" destination="GID-fZ-GW7" id="wf9-ja-e0s"/>
                 <outlet property="dateLabel" destination="pQF-jY-tOg" id="RJ2-JQ-INb"/>
                 <outlet property="descriptionLabel" destination="zAj-tk-cU6" id="0OW-ay-Xnd"/>
                 <outlet property="imageView" destination="SfU-eq-VZD" id="k8A-fC-azJ"/>

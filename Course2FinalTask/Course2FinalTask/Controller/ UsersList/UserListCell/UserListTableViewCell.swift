@@ -9,12 +9,12 @@
 import UIKit
 import DataProvider
 
-class UserListTableViewCell: UITableViewCell {
+final class UserListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
-    @IBOutlet weak var cellConstraintsWidthConstraint: NSLayoutConstraint! {
+    @IBOutlet weak private var cellConstraintsWidthConstraint: NSLayoutConstraint! {
         willSet {
             newValue.constant = UIScreen.main.bounds.width
         }

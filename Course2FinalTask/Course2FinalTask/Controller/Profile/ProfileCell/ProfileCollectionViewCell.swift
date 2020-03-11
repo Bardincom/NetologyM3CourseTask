@@ -11,7 +11,7 @@ import DataProvider
 
 final class ProfileCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak private var imageView: UIImageView!
     
     func setImageCell(post: Post) {
         imageView.image = post.image

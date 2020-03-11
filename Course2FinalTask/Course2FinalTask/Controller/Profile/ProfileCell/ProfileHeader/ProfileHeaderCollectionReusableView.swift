@@ -11,10 +11,10 @@ import DataProvider
 
 final class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     
-    @IBOutlet weak var avatarImage: UIImageView!
-    @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var followersLabel: UILabel!
-    @IBOutlet weak var followingLabel: UILabel!
+    @IBOutlet weak private var avatarImage: UIImageView!
+    @IBOutlet weak private var fullNameLabel: UILabel!
+    @IBOutlet weak private var followersLabel: UILabel!
+    @IBOutlet weak private var followingLabel: UILabel!
     
     func setHeader(user: User) {
         avatarImage.image = user.avatar

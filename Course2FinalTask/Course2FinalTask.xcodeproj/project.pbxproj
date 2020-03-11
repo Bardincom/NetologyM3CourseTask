@@ -11,10 +11,13 @@
 		7484B05520441FD000BDE1A6 /* DataProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7484B05320441FD000BDE1A6 /* DataProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B79257202B3254006BCB41 /* AppDelegate.swift */; };
 		74B7925F202B3254006BCB41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B7925E202B3254006BCB41 /* Assets.xcassets */; };
+		A23BC8A62418FF3800640E54 /* UIColor Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23BC8A52418FF3700640E54 /* UIColor Properties.swift */; };
+		A23BC8A82419046E00640E54 /* DataProvider Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23BC8A72419046E00640E54 /* DataProvider Properties.swift */; };
+		A23BC8AA2419054400640E54 /* UIFont Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23BC8A92419054400640E54 /* UIFont Properties.swift */; };
 		A2473B9E240825D600623034 /* NibInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2473B9D240825D600623034 /* NibInit.swift */; };
 		A25E5462240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E5460240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift */; };
 		A25E5463240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A25E5461240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib */; };
-		A27133AA240F7FB8007E13BC /* PublicProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27133A9240F7FB8007E13BC /* PublicProperties.swift */; };
+		A27133AA240F7FB8007E13BC /* UIViewController Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27133A9240F7FB8007E13BC /* UIViewController Properties.swift */; };
 		A27133AC240FC416007E13BC /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27133AB240FC416007E13BC /* Date + Extension.swift */; };
 		A27133B02413B259007E13BC /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27133AE2413B259007E13BC /* UserListViewController.swift */; };
 		A27133B12413B259007E13BC /* UserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A27133AF2413B259007E13BC /* UserListViewController.xib */; };
@@ -54,10 +57,13 @@
 		74B79257202B3254006BCB41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74B7925E202B3254006BCB41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B79263202B3254006BCB41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A23BC8A52418FF3700640E54 /* UIColor Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor Properties.swift"; sourceTree = "<group>"; };
+		A23BC8A72419046E00640E54 /* DataProvider Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataProvider Properties.swift"; sourceTree = "<group>"; };
+		A23BC8A92419054400640E54 /* UIFont Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont Properties.swift"; sourceTree = "<group>"; };
 		A2473B9D240825D600623034 /* NibInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInit.swift; sourceTree = "<group>"; };
 		A25E5460240C275200478BC5 /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		A25E5461240C275200478BC5 /* ProfileHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
-		A27133A9240F7FB8007E13BC /* PublicProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProperties.swift; sourceTree = "<group>"; };
+		A27133A9240F7FB8007E13BC /* UIViewController Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController Properties.swift"; sourceTree = "<group>"; };
 		A27133AB240FC416007E13BC /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		A27133AE2413B259007E13BC /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		A27133AF2413B259007E13BC /* UserListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListViewController.xib; sourceTree = "<group>"; };
@@ -206,9 +212,12 @@
 		A293F705240BB86A003D5A96 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				A27133A9240F7FB8007E13BC /* PublicProperties.swift */,
-				A293F706240BB8EC003D5A96 /* UICollectionView + Extension.swift */,
+				A27133A9240F7FB8007E13BC /* UIViewController Properties.swift */,
+				A23BC8A52418FF3700640E54 /* UIColor Properties.swift */,
+				A23BC8A92419054400640E54 /* UIFont Properties.swift */,
+				A23BC8A72419046E00640E54 /* DataProvider Properties.swift */,
 				A27133AB240FC416007E13BC /* Date + Extension.swift */,
+				A293F706240BB8EC003D5A96 /* UICollectionView + Extension.swift */,
 				A27133B72413BB16007E13BC /* UITableView + Extension.swift */,
 				A2473B9D240825D600623034 /* NibInit.swift */,
 			);
@@ -319,13 +328,16 @@
 				A27133B02413B259007E13BC /* UserListViewController.swift in Sources */,
 				A2473B9E240825D600623034 /* NibInit.swift in Sources */,
 				A293F707240BB8EC003D5A96 /* UICollectionView + Extension.swift in Sources */,
+				A23BC8AA2419054400640E54 /* UIFont Properties.swift in Sources */,
 				A27133B82413BB16007E13BC /* UITableView + Extension.swift in Sources */,
 				A27133B52413B2B0007E13BC /* UserListTableViewCell.swift in Sources */,
 				A27133AC240FC416007E13BC /* Date + Extension.swift in Sources */,
+				A23BC8A62418FF3800640E54 /* UIColor Properties.swift in Sources */,
 				A2F7486924041F7700396045 /* ProfileViewController.swift in Sources */,
 				A293F70C240BE7A8003D5A96 /* ProfileCollectionViewCell.swift in Sources */,
+				A23BC8A82419046E00640E54 /* DataProvider Properties.swift in Sources */,
 				A2F7486524041F6200396045 /* FeedViewController.swift in Sources */,
-				A27133AA240F7FB8007E13BC /* PublicProperties.swift in Sources */,
+				A27133AA240F7FB8007E13BC /* UIViewController Properties.swift in Sources */,
 				74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */,
 				A2DF35EE2405C2C0008A9CD7 /* FeedCollectionViewCell.swift in Sources */,
 			);

@@ -14,7 +14,7 @@ final class ProfileViewController: UIViewController, NibInit {
     var userProfile: User?
     var postsProfile: [Post]?
     
-    @IBOutlet weak var profileCollectionView: UICollectionView! {
+    @IBOutlet weak private var profileCollectionView: UICollectionView! {
         willSet {
             newValue.register(nibCell: ProfileCollectionViewCell.self)
             newValue.register(nibSupplementaryView: ProfileHeaderCollectionReusableView.self, kind: UICollectionView.elementKindSectionHeader)
@@ -29,10 +29,8 @@ final class ProfileViewController: UIViewController, NibInit {
             userProfile = currentUser
         }
         
-        postsProfile = posts.findPosts(by: userProfile!.id)
-        
-        
-        
+        postsProfile = posts.findPosts(by: selectUser(user: userProfile).id)
+        setViewController()
     }
 }
 
@@ -40,8 +38,7 @@ final class ProfileViewController: UIViewController, NibInit {
 extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return selectPosts().count
-        return postsProfile!.count
+        return selectPosts(posts: postsProfile).count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -70,7 +67,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
             assertionFailure()
             return
         }
-        let post = postsProfile![indexPath.row]
+        let post = selectPosts(posts: postsProfile)[indexPath.row]
         cell.setImageCell(post: post)
         
         
@@ -80,7 +77,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         guard let view = view as? ProfileHeaderCollectionReusableView else {
             assertionFailure()
             return  }
-        view.setHeader(user: userProfile!)
+        view.setHeader(user: selectUser(user: userProfile))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -94,7 +91,7 @@ extension ProfileViewController {
     
     private func setViewController() {
         view.backgroundColor = .white
-        title = currentUser.username
+        title = userProfile?.username
         tabBarItem.title = ControllerSet.profileViewController
     }
 }
