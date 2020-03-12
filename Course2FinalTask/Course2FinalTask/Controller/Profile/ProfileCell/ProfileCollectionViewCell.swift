@@ -16,8 +16,6 @@ final class ProfileCollectionViewCell: UICollectionViewCell {
     func setImageCell(post: Post) {
         imageView.image = post.image
     }
-    
-    
 }
 
 
