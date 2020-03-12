@@ -13,12 +13,6 @@ final class UserListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    
-    @IBOutlet weak private var cellConstraintsWidthConstraint: NSLayoutConstraint! {
-        willSet {
-            newValue.constant = UIScreen.main.bounds.width
-        }
-    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

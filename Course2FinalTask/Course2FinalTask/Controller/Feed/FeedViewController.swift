@@ -26,6 +26,7 @@ final class FeedViewController: UIViewController, NibInit {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setFeedViewController()
     }
 }
@@ -69,8 +70,11 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: FeedCollectionViewProtoco
+
+
+// MARK: FeedCollectionViewProtocol
 extension FeedViewController: FeedCollectionViewProtocol {
+    
     /// открывает профиль пользователя
     func openUserProfile(cell: FeedCollectionViewCell) {
         guard let indexPath = feedCollectionView.indexPath(for: cell) else { return }
@@ -90,7 +94,7 @@ extension FeedViewController: FeedCollectionViewProtocol {
     /// ставит лайк на публикацию
     func likePost(cell: FeedCollectionViewCell) {
         guard let indexPath = feedCollectionView.indexPath(for: cell) else { return }
-
+        
         let postID = postsFeed[indexPath.row].id
         
         guard cell.likeButton.tintColor == lightGrayColor else {
@@ -110,4 +114,65 @@ extension FeedViewController: FeedCollectionViewProtocol {
         }
     }
     
+    /// открывает список пользователей поставивших лайк
+    func userList(cell: FeedCollectionViewCell) {
+        
+        
+        
+        
+        var userMarkerPost = [User]()
+        
+        guard let indexPath = feedCollectionView.indexPath(for: cell) else { return }
+        
+        let currentPost = postsFeed[indexPath.row].id
+        
+        guard let usersID = posts.usersLikedPost(with: currentPost) else { return }
+        
+        userMarkerPost = usersID.compactMap{ currentUserID in
+            users.user(with: currentUserID) }
+        
+        guard !userMarkerPost.isEmpty else { return }
+        
+        let userListViewController = UserListViewController.initFromNib()
+        userListViewController.usersList = userMarkerPost
+        userListViewController.navigationItemTitle = "Likes"
+        self.navigationController?.pushViewController(userListViewController, animated: true)
+        
+        
+    }
 }
+
+
+//extension FeedViewController: CustomFlowLayoutDelegate {
+//    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+////        let itemSize = postsFeed[indexPath.item].description.heightWithConstrainedWidth(width: 290, font: systemsFont)
+//         let width = collectionView.frame.width
+//                let post = posts.feed()[indexPath.row]
+//                let estimatedFrame = NSString(string: post.description).boundingRect(with: CGSize(width: width - 8, height: width - 8), options: .usesLineFragmentOrigin, attributes: nil, context: nil)
+////                CGSize(width: width, height: estimatedFrame.height + UIScreen.main.bounds.width + 130)
+//
+//        return 415//+ itemSize + 15
+////      return  collectionView.bounds.width
+//    }
+//}
+
+
+//        let width = collectionView.frame.width
+//        let post = posts.feed()[indexPath.row]
+//        let estimatedFrame = NSString(string: post.description).boundingRect(with: CGSize(width: width - 8, height: width - 8), options: .usesLineFragmentOrigin, attributes: nil, context: nil)
+//        return CGSize(width: width, height: estimatedFrame.height + UIScreen.main.bounds.width + 130)
+
+//extension String {
+//    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+//        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+//        let boundingBox = self.boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [NSAttributedString.Key.font: font], context: nil)
+//        return boundingBox.height
+//    }
+//}
+//func collectionView(
+//    _ collectionView: UICollectionView,
+//    heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
+//    let r = feed[indexPath.item].description.heightWithConstrainedWidth(width: 290, font: UIFont.systemFont(ofSize: 14))
+//
+//    return 415 + r
+//}

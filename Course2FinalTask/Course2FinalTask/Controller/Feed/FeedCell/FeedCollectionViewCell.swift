@@ -12,6 +12,7 @@ import DataProvider
 protocol FeedCollectionViewProtocol {
     func openUserProfile(cell: FeedCollectionViewCell)
     func likePost(cell: FeedCollectionViewCell)
+    func userList(cell: FeedCollectionViewCell)
 }
 
 final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
@@ -54,7 +55,7 @@ final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
             return
         }
         likeButton.tintColor = defaultTintColor
-
+        
     }
     
     override func awakeFromNib() {
@@ -80,6 +81,9 @@ final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
         let gestureNameTap = UITapGestureRecognizer(target: self, action: #selector(goToProfile))
         containerStackView.addGestureRecognizer(gestureNameTap)
         
+        /// жест по надписи количество лайков
+        let gestureLikeLabelTap = UITapGestureRecognizer(target: self, action: #selector(openLikeList))
+        likesLabel.addGestureRecognizer(gestureLikeLabelTap)
     }
 }
 
@@ -93,10 +97,11 @@ extension FeedCollectionViewCell {
     @objc private func likeTap() {
         delegate?.likePost(cell: self)
     }
-}
-
-//MARK: Animation
-extension FeedCollectionViewCell {
+    
+    @objc private func openLikeList() {
+        delegate?.userList(cell: self)
+    }
+    
     @objc private func doudleLikeTap() {
         
         UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveLinear], animations: {
@@ -127,5 +132,6 @@ private extension FeedCollectionViewCell {
     func setupUserInteraction() {
         avatarImageView.isUserInteractionEnabled = true
         imageView.isUserInteractionEnabled = true
+        likesLabel.isUserInteractionEnabled = true
     }
 }

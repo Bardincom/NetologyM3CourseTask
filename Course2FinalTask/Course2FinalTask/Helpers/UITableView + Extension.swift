@@ -25,13 +25,14 @@ extension UITableView {
 
 extension UITableView {
     
-//    func dequeue <T: UITableViewCell>(reusable identifier: T.Type) -> T {
-//        let identifierString = String(describing: identifier)
-//        return self.dequeueReusableCell(withIdentifier: identifierString) as! T
-//    }
+    func dequeue <T: UITableViewCell>(reusable identifier: T.Type) -> T {
+        let identifierString = String(describing: identifier)
+        return self.dequeueReusableCell(withIdentifier: identifierString) as! T
+    }
     
     func dequeue <T: UITableViewCell>(reusable identifier: T.Type, for indexPath: IndexPath) -> T {
           let identifierString = String(describing: identifier)
           return self.dequeueReusableCell(withIdentifier: identifierString, for: indexPath) as! T
       }
 }
+

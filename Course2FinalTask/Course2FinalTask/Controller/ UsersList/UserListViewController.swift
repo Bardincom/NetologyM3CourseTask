@@ -9,18 +9,26 @@
 import UIKit
 import DataProvider
 
-class UserListViewController: UIViewController {
+class UserListViewController: UIViewController, NibInit {
+    
+    var usersList: [User]?
+    var navigationItemTitle: String?
     
     @IBOutlet weak var userListTableView: UITableView! {
         willSet {
             newValue.register(nibCell: UserListTableViewCell.self)
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let navigationItemTitle = navigationItemTitle {
+            self.navigationItem.title = navigationItemTitle
+        }
     }
 }
 
@@ -28,7 +36,7 @@ class UserListViewController: UIViewController {
 extension UserListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        users.usersFollowingUser(with: currentUser.id)!.count
+        selectUsers(users: usersList).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,9 +51,11 @@ extension UserListViewController: UITableViewDelegate {
         guard let cell = cell as? UserListTableViewCell else {
             assertionFailure()
             return }
-        let user = users.usersFollowingUser(with: currentUser.id)![indexPath.row]
+        
+        let user = selectUsers(users: usersList)[indexPath.row]
         cell.avatarImage.image = user.avatar
         cell.userNameLabel.text = user.username
+
     }
 }
 

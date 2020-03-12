@@ -15,7 +15,7 @@ public let users = DataProviders.shared.usersDataProvider
 
 /// Текущий пользователь
 public let currentUser = users.currentUser()
-public let currentUserID = users.user(with: currentUser.id)
+//public let currentUserID = users.user(with: currentUser.id)
 
 /// Массив постов. Массив пустой если нет постов или текущий пользователь ни на кого не подписан.
 public var postsFeed = posts.feed()
@@ -32,4 +32,11 @@ func selectPosts(posts: [Post]?) -> [Post] {
 func selectUser(user: User?) -> User {
     guard let user = user else { return currentUser }
     return user
+}
+
+func selectUsers(users: [User]?) -> [User] {
+    guard let users = users else {
+        return [User]()
+    }
+    return users
 }
