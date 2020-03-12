@@ -71,6 +71,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         cell.setImageCell(post: post)
         
         
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
@@ -78,6 +79,8 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
             assertionFailure()
             return  }
         view.setHeader(user: selectUser(user: userProfile))
+        /// указываю делегат
+        view.delegate = self
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -96,5 +99,23 @@ extension ProfileViewController {
     }
 }
 
-
-
+//MARK: ProfileHeaderDelegate
+extension ProfileViewController: ProfileHeaderDelegate {
+    
+    func openFollowersList() {
+        guard let followers = users.usersFollowedByUser(with: selectUser(user: userProfile).id) else { return }
+        let userListViewController = UserListViewController.initFromNib()
+        userListViewController.usersList = followers
+        userListViewController.navigationItemTitle = "Followers"
+        self.navigationController?.pushViewController(userListViewController, animated: true)
+    }
+    
+    func openFollowingList() {
+        guard let following = users.usersFollowingUser(with: selectUser(user: userProfile).id) else { return }
+        let userListViewController = UserListViewController.initFromNib()
+        userListViewController.usersList = following
+        userListViewController.navigationItemTitle = "Following"
+        self.navigationController?.pushViewController(userListViewController, animated: true)
+        
+    }
+}

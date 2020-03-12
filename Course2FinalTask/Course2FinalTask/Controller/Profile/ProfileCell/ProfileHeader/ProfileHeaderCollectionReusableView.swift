@@ -9,12 +9,33 @@
 import UIKit
 import DataProvider
 
+protocol ProfileHeaderDelegate {
+    func openFollowersList()
+    func openFollowingList()
+}
+
 final class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     
     @IBOutlet weak private var avatarImage: UIImageView!
     @IBOutlet weak private var fullNameLabel: UILabel!
     @IBOutlet weak private var followersLabel: UILabel!
     @IBOutlet weak private var followingLabel: UILabel!
+    
+    var delegate: ProfileHeaderDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        followersLabel.isUserInteractionEnabled = true
+        followingLabel.isUserInteractionEnabled = true
+        
+        let gestureFollowersTap = UITapGestureRecognizer(target: self, action: #selector(followersTap))
+        followersLabel.addGestureRecognizer(gestureFollowersTap)
+        
+        let gestureFollowingTap = UITapGestureRecognizer(target: self, action: #selector(followingTap))
+        followingLabel.addGestureRecognizer(gestureFollowingTap)
+        
+    }
     
     func setHeader(user: User) {
         avatarImage.image = user.avatar
@@ -25,5 +46,18 @@ final class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         followersLabel.text = "Followers: \(user.followsCount)"
         followingLabel.font = systemsBoldFont
         followingLabel.text = "Following: \(user.followedByCount)"
+    }
+}
+
+//MARK: Selector
+extension ProfileHeaderCollectionReusableView {
+    @objc func followersTap() {
+        delegate?.openFollowersList()
+        print("followersTap")
+    }
+    
+    @objc func followingTap() {
+        delegate?.openFollowingList()
+        print("followingTap")
     }
 }

@@ -80,7 +80,7 @@ final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
         /// жест для перехода по имени и дате(использовал SteakView)
         let gestureNameTap = UITapGestureRecognizer(target: self, action: #selector(goToProfile))
         containerStackView.addGestureRecognizer(gestureNameTap)
-        
+
         /// жест по надписи количество лайков
         let gestureLikeLabelTap = UITapGestureRecognizer(target: self, action: #selector(openLikeList))
         likesLabel.addGestureRecognizer(gestureLikeLabelTap)
