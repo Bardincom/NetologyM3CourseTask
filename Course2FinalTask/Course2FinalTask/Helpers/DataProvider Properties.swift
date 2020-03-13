@@ -8,19 +8,18 @@
 
 import DataProvider
 
-
+/// Поставщик публикаций
 public let posts = DataProviders.shared.postsDataProvider
+
+/// Поставщик пользователей
 public let users = DataProviders.shared.usersDataProvider
 
 
 /// Текущий пользователь
 public let currentUser = users.currentUser()
-//public let currentUserID = users.user(with: currentUser.id)
 
 /// Массив постов. Массив пустой если нет постов или текущий пользователь ни на кого не подписан.
 public var postsFeed = posts.feed()
-
-
 
 /// Развертывание опционала для публикаций
 func selectPosts(posts: [Post]?) -> [Post] {

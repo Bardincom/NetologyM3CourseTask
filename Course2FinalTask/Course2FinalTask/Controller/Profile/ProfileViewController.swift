@@ -23,13 +23,8 @@ final class ProfileViewController: UIViewController, NibInit {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setViewController()
-        
-        if userProfile == nil {
-            userProfile = currentUser
-        }
-        
-        postsProfile = posts.findPosts(by: selectUser(user: userProfile).id)
         setViewController()
     }
 }
@@ -69,17 +64,14 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         }
         let post = selectPosts(posts: postsProfile)[indexPath.row]
         cell.setImageCell(post: post)
-        
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
         guard let view = view as? ProfileHeaderCollectionReusableView else {
             assertionFailure()
             return  }
+        
         view.setHeader(user: selectUser(user: userProfile))
-        /// указываю делегат
         view.delegate = self
     }
     
@@ -92,10 +84,14 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
 //MARK: setViewController
 extension ProfileViewController {
     
-    private func setViewController() {
-        view.backgroundColor = .white
+    func setViewController() {
+        if userProfile == nil {
+            userProfile = currentUser
+        }
+        view.backgroundColor = viewBackgroundColor
         title = userProfile?.username
         tabBarItem.title = ControllerSet.profileViewController
+        postsProfile = posts.findPosts(by: selectUser(user: userProfile).id)
     }
 }
 
@@ -106,7 +102,7 @@ extension ProfileViewController: ProfileHeaderDelegate {
         guard let followers = users.usersFollowedByUser(with: selectUser(user: userProfile).id) else { return }
         let userListViewController = UserListViewController.initFromNib()
         userListViewController.usersList = followers
-        userListViewController.navigationItemTitle = "Followers"
+        userListViewController.navigationItemTitle = NamesItemTitle.followers
         self.navigationController?.pushViewController(userListViewController, animated: true)
     }
     
@@ -114,8 +110,7 @@ extension ProfileViewController: ProfileHeaderDelegate {
         guard let following = users.usersFollowingUser(with: selectUser(user: userProfile).id) else { return }
         let userListViewController = UserListViewController.initFromNib()
         userListViewController.usersList = following
-        userListViewController.navigationItemTitle = "Following"
+        userListViewController.navigationItemTitle = NamesItemTitle.following
         self.navigationController?.pushViewController(userListViewController, animated: true)
-        
     }
 }

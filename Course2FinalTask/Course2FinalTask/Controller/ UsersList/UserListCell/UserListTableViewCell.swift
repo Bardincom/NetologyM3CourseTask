@@ -14,15 +14,8 @@ final class UserListTableViewCell: UITableViewCell {
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func setupList(user: User) {
+        avatarImage.image = user.avatar
+        userNameLabel.text = user.username
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

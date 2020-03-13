@@ -12,6 +12,7 @@ import DataProvider
 class UserListViewController: UIViewController, NibInit {
     
     var usersList: [User]?
+    var userInList: User?
     var navigationItemTitle: String?
     
     @IBOutlet weak var userListTableView: UITableView! {
@@ -22,13 +23,10 @@ class UserListViewController: UIViewController, NibInit {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        
         if let navigationItemTitle = navigationItemTitle {
-            self.navigationItem.title = navigationItemTitle
-        }
+                  self.navigationItem.title = navigationItemTitle
+              }
     }
 }
 
@@ -53,10 +51,13 @@ extension UserListViewController: UITableViewDelegate {
             return }
         
         let user = selectUsers(users: usersList)[indexPath.row]
-        cell.avatarImage.image = user.avatar
-        cell.userNameLabel.text = user.username
-
+        cell.setupList(user: user)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectUser = selectUsers(users: usersList)[indexPath.row]
+        let profileViewController = ProfileViewController.initFromNib()
+        profileViewController.userProfile = selectUser
+        self.navigationController?.pushViewController(profileViewController, animated: true)
     }
 }
-
-

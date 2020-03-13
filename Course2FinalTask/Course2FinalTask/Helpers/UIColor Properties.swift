@@ -8,8 +8,6 @@
 
 import UIKit
 
-let lightGrayColor: UIColor = .lightGray
-let defaultTintColor: UIColor? = nil
-
-
-    
+let lightGrayColor = UIColor(named: "lightGrayColor")
+let defaultTintColor =  UIColor(named: "defaultTintColor")
+let viewBackgroundColor = UIColor(named: "viewBackgroundColor")

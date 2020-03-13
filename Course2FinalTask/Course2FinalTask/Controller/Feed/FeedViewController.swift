@@ -58,7 +58,7 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
             return
         }
         let post = postsFeed[indexPath.row]
-        cell.setup(post: post)
+        cell.setupFeed(post: post)
         cell.delegate = self
     }
     
@@ -75,6 +75,7 @@ extension FeedViewController: FeedCollectionViewProtocol {
     
     /// открывает профиль пользователя
     func openUserProfile(cell: FeedCollectionViewCell) {
+        
         guard let indexPath = feedCollectionView.indexPath(for: cell) else { return }
         
         let currentPost = postsFeed[indexPath.row]
@@ -119,9 +120,9 @@ extension FeedViewController: FeedCollectionViewProtocol {
         
         guard let indexPath = feedCollectionView.indexPath(for: cell) else { return }
         
-        let currentPost = postsFeed[indexPath.row].id
+        let currentPostID = postsFeed[indexPath.row].id
         
-        guard let usersID = posts.usersLikedPost(with: currentPost) else { return }
+        guard let usersID = posts.usersLikedPost(with: currentPostID) else { return }
         
         userMarkerPost = usersID.compactMap{ currentUserID in
             users.user(with: currentUserID) }
@@ -130,7 +131,7 @@ extension FeedViewController: FeedCollectionViewProtocol {
         
         let userListViewController = UserListViewController.initFromNib()
         userListViewController.usersList = userMarkerPost
-        userListViewController.navigationItemTitle = "Likes"
+        userListViewController.navigationItemTitle = NamesItemTitle.likes
         self.navigationController?.pushViewController(userListViewController, animated: true)
     }
 }

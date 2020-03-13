@@ -26,15 +26,8 @@ final class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        followersLabel.isUserInteractionEnabled = true
-        followingLabel.isUserInteractionEnabled = true
-        
-        let gestureFollowersTap = UITapGestureRecognizer(target: self, action: #selector(followersTap))
-        followersLabel.addGestureRecognizer(gestureFollowersTap)
-        
-        let gestureFollowingTap = UITapGestureRecognizer(target: self, action: #selector(followingTap))
-        followingLabel.addGestureRecognizer(gestureFollowingTap)
-        
+        setupUserInteraction()
+        setupTapGestureRecognizer()
     }
     
     func setHeader(user: User) {
@@ -51,13 +44,34 @@ final class ProfileHeaderCollectionReusableView: UICollectionReusableView {
 
 //MARK: Selector
 extension ProfileHeaderCollectionReusableView {
+    
     @objc func followersTap() {
         delegate?.openFollowersList()
-        print("followersTap")
     }
     
     @objc func followingTap() {
         delegate?.openFollowingList()
-        print("followingTap")
+    }
+}
+
+//MARK: TapGestureRecognizer
+private extension ProfileHeaderCollectionReusableView {
+    
+    func setupTapGestureRecognizer() {
+        let gestureFollowersTap = UITapGestureRecognizer(target: self, action: #selector(followersTap))
+        followersLabel.addGestureRecognizer(gestureFollowersTap)
+        
+        let gestureFollowingTap = UITapGestureRecognizer(target: self, action: #selector(followingTap))
+        followingLabel.addGestureRecognizer(gestureFollowingTap)
+    }
+}
+
+
+//MARK: Helpers
+private extension ProfileHeaderCollectionReusableView {
+    
+    func setupUserInteraction() {
+        followersLabel.isUserInteractionEnabled = true
+        followingLabel.isUserInteractionEnabled = true
     }
 }
