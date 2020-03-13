@@ -59,5 +59,6 @@ extension UserListViewController: UITableViewDelegate {
         let profileViewController = ProfileViewController.initFromNib()
         profileViewController.userProfile = selectUser
         self.navigationController?.pushViewController(profileViewController, animated: true)
+        userListTableView.deselectRow(at: indexPath, animated: true)
     }
 }
