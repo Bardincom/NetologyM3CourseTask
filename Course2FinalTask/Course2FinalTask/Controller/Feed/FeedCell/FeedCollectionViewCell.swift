@@ -45,27 +45,7 @@ final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
         
         setupFonts()
         setupUserInteraction()
-        /// жест по картинке для лайка
-        let gestureImageTap = UITapGestureRecognizer(target: self, action: #selector(doudleLikeTap))
-        gestureImageTap.numberOfTapsRequired = 2
-        imageView.addGestureRecognizer(gestureImageTap)
-        
-        /// жест кнопке лайк
-        let gestureLikeButtonTap = UITapGestureRecognizer(target: self, action: #selector(likeTap))
-        likeButton.addGestureRecognizer(gestureLikeButtonTap)
-        
-        /// жест для перехода по аватару
-        let gestureAvatarTap = UITapGestureRecognizer(target: self, action: #selector(goToProfile))
-        avatarImageView.addGestureRecognizer(gestureAvatarTap)
-        
-        /// жест для перехода по имени и дате(использовал SteakView)
-        let gestureNameTap = UITapGestureRecognizer(target: self, action: #selector(goToProfile))
-        containerStackView.addGestureRecognizer(gestureNameTap)
-
-        /// жест по надписи количество лайков
-        let gestureLikeLabelTap = UITapGestureRecognizer(target: self, action: #selector(openLikeList))
-        likesLabel.addGestureRecognizer(gestureLikeLabelTap)
-//        setupTapGestureRecognizer()
+        setupTapGestureRecognizer()
         
     }
     
