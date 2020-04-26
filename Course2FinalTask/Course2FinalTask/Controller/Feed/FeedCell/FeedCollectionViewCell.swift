@@ -16,23 +16,24 @@ protocol FeedCollectionViewProtocol {
 }
 
 final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
-   
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet private weak var userNameLabel: UILabel!
-    @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var likesLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var avatarImageView: UIImageView!
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var containerStackView: UIStackView!
     
-    @IBOutlet private weak var bigLike: UIImageView! {
-        willSet {
-            newValue.alpha = 0
-        }
-    }
+    @IBOutlet var likeButton: UIButton!
+    @IBOutlet private var userNameLabel: UILabel!
+    @IBOutlet private var dateLabel: UILabel!
+    @IBOutlet private var likesLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var avatarImageView: UIImageView!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var containerStackView: UIStackView!
     
-    @IBOutlet private weak var cellConstraintsWidthConstraint: NSLayoutConstraint! {
+    @IBOutlet private var bigLike: UIImageView!
+//    {
+//        willSet {
+//            newValue.alpha = 0
+//        }
+//    }
+    
+    @IBOutlet private var cellConstraintsWidthConstraint: NSLayoutConstraint! {
         willSet {
             newValue.constant = UIScreen.main.bounds.width
         }
@@ -44,27 +45,26 @@ final class FeedCollectionViewCell: UICollectionViewCell, NibInit {
         super.awakeFromNib()
         
         setupFonts()
-        setupUserInteraction()
         setupTapGestureRecognizer()
         
     }
     
     /// настройка ленты
-     func setupFeed(post: Post) {
-         dateLabel.text = post.createdTime.displayDate()
-         avatarImageView.image = post.authorAvatar
-         userNameLabel.text = post.authorUsername
-         imageView.image = post.image
-         likesLabel.text = "Likes: " + "\(post.likedByCount)"
-         descriptionLabel.text = post.description
-         
-         /// отображение лайка на публикации текущего пользователя
-         guard post.currentUserLikesThisPost else {
-             likeButton.tintColor = lightGrayColor
-             return
-         }
-         likeButton.tintColor = defaultTintColor
-     }
+    func setupFeed(post: Post) {
+        dateLabel.text = post.createdTime.displayDate()
+        avatarImageView.image = post.authorAvatar
+        userNameLabel.text = post.authorUsername
+        imageView.image = post.image
+        likesLabel.text = "Likes: " + "\(post.likedByCount)"
+        descriptionLabel.text = post.description
+        
+        /// отображение лайка на публикации текущего пользователя
+        guard post.currentUserLikesThisPost else {
+            likeButton.tintColor = lightGrayColor
+            return
+        }
+        likeButton.tintColor = defaultTintColor
+    }
 }
 
 //MARK: Selector
@@ -107,12 +107,6 @@ private extension FeedCollectionViewCell {
         descriptionLabel.font = systemsFont
         likeButton.tintColor = defaultTintColor
     }
-    
-    func setupUserInteraction() {
-        avatarImageView.isUserInteractionEnabled = true
-        imageView.isUserInteractionEnabled = true
-        likesLabel.isUserInteractionEnabled = true
-    }
 }
 
 //MARK: TapGestureRecognizer
@@ -134,7 +128,7 @@ private extension FeedCollectionViewCell {
         /// жест для перехода по имени и дате(использовал SteakView)
         let gestureNameTap = UITapGestureRecognizer(target: self, action: #selector(goToProfile))
         containerStackView.addGestureRecognizer(gestureNameTap)
-
+        
         /// жест по надписи количество лайков
         let gestureLikeLabelTap = UITapGestureRecognizer(target: self, action: #selector(openLikeList))
         likesLabel.addGestureRecognizer(gestureLikeLabelTap)

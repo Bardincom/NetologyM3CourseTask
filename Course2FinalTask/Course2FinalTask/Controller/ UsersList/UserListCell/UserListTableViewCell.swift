@@ -11,8 +11,8 @@ import DataProvider
 
 final class UserListTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var avatarImage: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet var avatarImage: UIImageView!
+    @IBOutlet var userNameLabel: UILabel!
 
     func setupList(user: User) {
         avatarImage.image = user.avatar

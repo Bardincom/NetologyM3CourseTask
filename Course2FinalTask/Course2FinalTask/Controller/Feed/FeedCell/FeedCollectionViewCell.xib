@@ -20,14 +20,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGW-zf-RJA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mxu-1l-XIR">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mxu-1l-XIR">
                                 <rect key="frame" x="15" y="8" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="R3F-0s-S2C"/>
                                     <constraint firstAttribute="width" constant="35" id="mat-r3-LGs"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SfU-eq-VZD">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SfU-eq-VZD">
                                 <rect key="frame" x="0.0" y="50.5" width="320" height="320"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -63,7 +63,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="GID-fZ-GW7" secondAttribute="height" multiplier="1:1" id="3DO-6w-609"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3N-yl-MXw">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3N-yl-MXw">
                                 <rect key="frame" x="15" y="392" width="231" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -78,7 +78,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigLike" translatesAutoresizingMaskIntoConstraints="NO" id="avz-6W-4UD">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bigLike" translatesAutoresizingMaskIntoConstraints="NO" id="avz-6W-4UD">
                                 <rect key="frame" x="110" y="160.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="avz-6W-4UD" secondAttribute="height" multiplier="1:1" id="l5m-bu-ZgA"/>

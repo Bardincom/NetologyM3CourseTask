@@ -15,7 +15,7 @@ class UserListViewController: UIViewController, NibInit {
     var userInList: User?
     var navigationItemTitle: String?
     
-    @IBOutlet weak var userListTableView: UITableView! {
+    @IBOutlet var userListTableView: UITableView! {
         willSet {
             newValue.register(nibCell: UserListTableViewCell.self)
         }
@@ -23,7 +23,6 @@ class UserListViewController: UIViewController, NibInit {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if let navigationItemTitle = navigationItemTitle {
                   self.navigationItem.title = navigationItemTitle
               }
@@ -38,7 +37,7 @@ extension UserListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return userListTableView.dequeue(reusable: UserListTableViewCell.self, for: indexPath)
+        return tableView.dequeue(reusable: UserListTableViewCell.self, for: indexPath)
     }
 }
 

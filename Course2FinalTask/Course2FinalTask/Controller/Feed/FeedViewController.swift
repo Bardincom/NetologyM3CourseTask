@@ -27,12 +27,6 @@ final class FeedViewController: UIViewController, NibInit {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setFeedViewController()
-    }
-}
-
-extension FeedViewController {
-    private func setFeedViewController() {
         title = ControllerSet.feedViewController
     }
 }
@@ -45,7 +39,7 @@ extension FeedViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        return feedCollectionView.dequeue(cell: FeedCollectionViewCell.self, for: indexPath)
+        return collectionView.dequeue(cell: FeedCollectionViewCell.self, for: indexPath)
     }
 }
 
@@ -66,7 +60,7 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.frame.width
         let post = posts.feed()[indexPath.row]
         let estimatedFrame = NSString(string: post.description).boundingRect(with: CGSize(width: width - 8, height: width - 8), options: .usesLineFragmentOrigin, attributes: nil, context: nil)
-        return CGSize(width: width, height: estimatedFrame.height + UIScreen.main.bounds.width + 130)
+        return CGSize(width: width, height: estimatedFrame.height + width + 130)
     }
 }
 

@@ -19,7 +19,7 @@ enum ControllerSet {
 enum NamesItemTitle {
    static let likes = "Likes"
    static let followers = "Followers"
-    static let following = "Following"
+   static let following = "Following"
 }
 
 

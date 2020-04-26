@@ -16,17 +16,16 @@ protocol ProfileHeaderDelegate {
 
 final class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     
-    @IBOutlet weak private var avatarImage: UIImageView!
-    @IBOutlet weak private var fullNameLabel: UILabel!
-    @IBOutlet weak private var followersLabel: UILabel!
-    @IBOutlet weak private var followingLabel: UILabel!
+    @IBOutlet private var avatarImage: UIImageView!
+    @IBOutlet private var fullNameLabel: UILabel!
+    @IBOutlet private var followersLabel: UILabel!
+    @IBOutlet private var followingLabel: UILabel!
     
     var delegate: ProfileHeaderDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setupUserInteraction()
         setupTapGestureRecognizer()
     }
     
@@ -63,15 +62,5 @@ private extension ProfileHeaderCollectionReusableView {
         
         let gestureFollowingTap = UITapGestureRecognizer(target: self, action: #selector(followingTap))
         followingLabel.addGestureRecognizer(gestureFollowingTap)
-    }
-}
-
-
-//MARK: Helpers
-private extension ProfileHeaderCollectionReusableView {
-    
-    func setupUserInteraction() {
-        followersLabel.isUserInteractionEnabled = true
-        followingLabel.isUserInteractionEnabled = true
     }
 }

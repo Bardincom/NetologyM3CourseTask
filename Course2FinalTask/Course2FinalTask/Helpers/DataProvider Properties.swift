@@ -14,7 +14,6 @@ public let posts = DataProviders.shared.postsDataProvider
 /// Поставщик пользователей
 public let users = DataProviders.shared.usersDataProvider
 
-
 /// Текущий пользователь
 public let currentUser = users.currentUser()
 

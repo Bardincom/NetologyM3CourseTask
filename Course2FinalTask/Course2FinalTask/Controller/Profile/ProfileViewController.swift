@@ -23,9 +23,8 @@ final class ProfileViewController: UIViewController, NibInit {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setViewController()
-        setViewController()
+
+        setupViewController()
     }
 }
 
@@ -38,14 +37,15 @@ extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        return profileCollectionView.dequeue(cell: ProfileCollectionViewCell.self, for: indexPath)
+        return collectionView.dequeue(cell: ProfileCollectionViewCell.self, for: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         
-        return profileCollectionView.dequeue(supplementaryView: ProfileHeaderCollectionReusableView.self, kind: kind, for: indexPath)
+        return collectionView.dequeue(supplementaryView: ProfileHeaderCollectionReusableView.self,
+                                      kind: kind, for: indexPath)
     }
     
     /// задаю размеры Header
@@ -84,7 +84,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
 //MARK: setViewController
 extension ProfileViewController {
     
-    func setViewController() {
+    func setupViewController() {
         if userProfile == nil {
             userProfile = currentUser
         }
@@ -101,6 +101,7 @@ extension ProfileViewController: ProfileHeaderDelegate {
     func openFollowersList() {
         guard let followers = users.usersFollowedByUser(with: selectUser(user: userProfile).id) else { return }
         let userListViewController = UserListViewController.initFromNib()
+        
         userListViewController.usersList = followers
         userListViewController.navigationItemTitle = NamesItemTitle.followers
         self.navigationController?.pushViewController(userListViewController, animated: true)
